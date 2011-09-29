@@ -13,7 +13,7 @@
 		var defaults = {
 			width				: '500',//set width
 			height				: '300',//set height
-			slideClass			: '.slide',//class that the plugin will associate slides with, good for nesting slideshows within slideshows
+			slideClass			: '.slide',//class that the plugin will associate slides with
 			fullWidth			: false,//stretches the slideshow across the entire screen width, does not hide any horizontal overflow
 			fullHeight			: false,//stretches the slideshow across the entire screen height, does not hide any vertical overflow
 			fullScreen			: false,//stretches the slideshow across the entire screen width and height
@@ -30,6 +30,7 @@
 			rightBtn			: '',//next button normal state
 			rightBtnOver		: '',//next button over state
 			rightBtnDown		: '',//next button down state
+			playOnMouseOver		: false,//only when the user's mouse is over the slideshow
 			autoHideNav			: false,//automatically hide the nav when the mouse is not over the slideshow
 			autoHideNavSpeed	: 500,//speed of the hiding and showing of the nav when autoHideNav is set to true
 			effect				: 'slide',//the transition effect of the slideshow - slide left or right, or fade from slide to slide
@@ -409,6 +410,17 @@
 				ap = setInterval(fadeNext, o.interval);
 			}
 		}
+		//------------------------------------------------------
+		//playOnMouseOver
+		if ( true === o.playOnMouseOver ) {
+			if(o.effect === 'fade'){
+				//ap = setInterval(fadeNext, o.interval);
+				p.bind( 'mouseenter', function( e ) {
+					fadeNext();
+				} );
+			}
+		}
+		
 		//------------------------------------------------------
 		//autoHideNav
 		if(o.autoHideNav === true){
