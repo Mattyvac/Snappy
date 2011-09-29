@@ -13,6 +13,7 @@
 		var defaults = {
 			width				: '500',//set width
 			height				: '300',//set height
+			slideClass			: '.slide',//class that the plugin will associate slides with, good for nesting slideshows within slideshows
 			fullWidth			: false,//stretches the slideshow across the entire screen width, does not hide any horizontal overflow
 			fullHeight			: false,//stretches the slideshow across the entire screen height, does not hide any vertical overflow
 			fullScreen			: false,//stretches the slideshow across the entire screen width and height
@@ -58,7 +59,7 @@
 		//global variables, properties, and objects
 		var p = this;//parent div
 		var w = p.find('div:first');//wrapper
-		var s = w.find('.slide');//all slides
+		var s = w.find(o.slideClass);//all slides
 		
 		var sw = o.width;//slide width
 		var sh = o.height;//slide height
