@@ -414,9 +414,12 @@
 		//playOnMouseOver
 		if ( true === o.playOnMouseOver ) {
 			if(o.effect === 'fade'){
-				//ap = setInterval(fadeNext, o.interval);
-				p.bind( 'mouseenter', function( e ) {
-					fadeNext();
+				p.bind( 'mouseover', function( e ) {
+					ap = setInterval( fadeNext, o.interval );	
+				} );
+				
+				p.bind( 'mouseout', function( e ) {
+					clearInterval( ap );	
 				} );
 			}
 		}
